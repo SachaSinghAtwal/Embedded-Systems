@@ -12,27 +12,120 @@ LCD_16X2_DISPLAY lcd;
 
 int main()
 {
+    while(true)
+   {    
+    red = 1;
+    amber = 0;
+    green = 0;
+    lcd.cls();
     lcd.puts("RED");
-    wait_us(1000000);
+    wait_us(10000000);
 
+    red = 1;
     amber = 1;
+    green = 0;
     lcd.cls();
     lcd.puts("Amber");
-    wait_us(1000000);
+    wait_us(500000);
 
+    red = 1;
+    amber = 0;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 1;
+    amber = 1;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 1;
+    amber = 0;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+        red = 1;
+    amber = 1;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 1;
+    amber = 0;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 1;
+    amber = 1;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+
+    red = 0;
+    amber = 0;
     green = 1;
     lcd.cls();
     lcd.puts("Green");    
-    wait_us(1000000);
+    wait_us(10000000);
 
+    red = 0;
+    amber = 1;
+    green = 0;
     lcd.cls();
-    lcd.puts("TASK-104");
+    lcd.puts("Amber");    
+    wait_us(500000);
 
-    while (true)
-    {
-        red = !red;
-        amber = !amber;
-        green = !green;
-        wait_us(WAIT_TIME_MS * 1000);
+    red = 0;
+    amber = 0;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 0;
+    amber = 1;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 0;
+    amber = 0;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 0;
+    amber = 1;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 0;
+    amber = 0;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
+
+    red = 0;
+    amber = 1;
+    green = 0;
+    lcd.cls();
+    lcd.puts("Amber");
+    wait_us(500000);
     }
+    
 }
