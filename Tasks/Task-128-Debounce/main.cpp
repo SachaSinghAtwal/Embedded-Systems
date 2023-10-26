@@ -1,8 +1,8 @@
 #include "mbed.h"
 
-DigitalIn ButtonA(PG_0);                    //Button A
+DigitalIn ButtonA(PG_0);               //Button A
 DigitalIn BlueButton(USER_BUTTON);          //Blue user button
-DigitalOut redLED(PC_2);                    //Red Traffic 1
+DigitalOut redLED(PC_2);              //Red Traffic 1
 
 int main()
 {
@@ -11,13 +11,15 @@ int main()
     while (true) {
 
         //Wait for a press
-        while (ButtonA==0) { };
+        while (BlueButton==0) { };
 
         //Toggle LED
         redLED = !redLED;
 
         //Wait for release
-        while (ButtonA==1) { };
+        while (BlueButton==1) { };
+
+        wait_us(5000000);
     }
 }
 
