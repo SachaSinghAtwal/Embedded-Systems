@@ -31,32 +31,42 @@ int main()
     //Turn ON the 7-segment display
     disp.enable(true);
 
+int btnA_last = buttonA;
+int btnB_last = buttonB;
+int btnA_new;
+int btnB_new;
 
-    // ****************************************
-    // THE FOLLOWING CODE IS NOT WELL WRITTEN!
-    // IT NEEDS FIXING
-    // ****************************************
 
     while (true) {
-
-        //Update display
-        disp = count;
         
-        //Wait for button A
-        while (buttonA == 0) {
-        } 
+        btnA_new = buttonA;
+        btnB_new = buttonB;
 
-        if (count > 0 ) {
-            count -= 1;
+        if (btnA_new != btnA_last) {
+            
+            if (btnA_new == 1 ) {
+                if (count < 99){
+                    count += 1;
+                }
+            }
+        
+            btnA_last = btnA_new;
+            disp = count;
         }
 
-        //Wait for button B
-        while (buttonB == 0) {
+
+        if (btnB_new != btnB_last) {
+            
+            if (btnB_new == 1 ) {
+                if (count > 0){
+                    count -= 1;
+                }
+            }
+        
+            btnB_last = btnB_new;
+            disp = count;
         }
 
-        if (count < 99 ) {
-            count += 1;
-        } 
 
         //Reset condition
         if ((buttonA == 1) && (buttonB == 1)) {
