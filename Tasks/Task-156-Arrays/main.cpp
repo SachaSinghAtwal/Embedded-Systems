@@ -17,9 +17,12 @@ Buzzer buzz;
 int main()
 {
     unsigned short samples[100];
+    signed int mean;
+    double sum[0];
 
     for (unsigned int m=0; m<100; m++) {
-        printf("%X ", samples[m]);
+        mean = m/99;
+        printf(" %X ", samples[m]);
     }
 
     // Automatic headlamp 

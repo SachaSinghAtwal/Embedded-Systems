@@ -46,13 +46,13 @@ int main()
         //Read Analog to Digital Converter values (16 bit)
         unsigned short potVal   = pot.read_u16();
         unsigned short lightVal = ldr.read_u16();
-        unsigned short micVal   = mic.read_u16(); 
+        signed int micVal   = mic.read_u16(); 
 
         //Write to terminal
         printf("--------------------------------\n");
         printf("Potentiometer: %X\n", potVal);
         printf("Light Dependant Resistor: %X\n", lightVal);
-        printf("Microphone: %X\n", micVal);   
+        printf("Microphone: %X\n", micVal - 0x8000);   
 
         //Wait 0.25 seconds
         wait_us(500000);

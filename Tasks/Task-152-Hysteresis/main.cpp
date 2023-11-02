@@ -15,16 +15,22 @@ Buzzer buzz;
 
 int main()
 {
+    enum {OFF=0, ON} state;
 
     while (true) {
         //Read Analog to Digital Converter values (16 bit)
         unsigned short potVal   = pot.read_u16();
         printf("Potentiometer: %X\n", potVal);
         
-        if (potVal > 0x8000) {
+        if (potVal > 0x9000) {
+            state = OFF;
             redLED = 1;
             buzz.playTone("C");
-        } else {
+
+        } 
+        
+        if (potVal < 0x7000) {
+            state = ON;
             redLED = 0;
             buzz.rest();
         }
