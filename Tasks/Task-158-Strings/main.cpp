@@ -38,21 +38,21 @@ int main()
         printf("Character: %c\tASCII: %u\n", str2[n], str2[n]);
     }
 
-    //3. Copying strings with strcpy
+    //3. Copying strings with strncpy
     char str3[16];
-    strcpy(str3, "Hello");
+    strncpy(str3, "Hello", sizeof(str3));
     printf("%s\n", str3);
     printf("Size: %d\n", sizeof(str3));
     printf("String length: %d\n", strlen(str3));
 
-    //strcpy and Constant strings
+    //strncpy and Constant strings
     const char str4[] = "The moon is made of cheese";
     char str5[64];
-    strcpy(str5, str4);
+    strncpy(str5, str4, sizeof(str4));
     printf("%s\n", str5);
     printf("Size: %d\n", sizeof(str5));
     printf("String length: %d\n", strlen(str5));   
-    //strcpy(str4, str5);   //Uncomment this
+    //strncpy(str4, str5);   //Uncomment this
 
 
     //4. Marshalling binary data with sprintf
