@@ -12,35 +12,42 @@ DigitalOut greenLED(TRAF_GRN1_PIN);
 //Analogue Inputs
 AnalogIn ldr(AN_LDR_PIN);
 Buzzer buzz;
-
+int sum = 0;
 
 int main()
 {
     unsigned short samples[100];
-    signed int mean;
-    double sum[0];
+    //int mean;
+    //int sum = 0;
 
     for (unsigned int m=0; m<100; m++) {
-        mean = m/99;
         printf(" %X ", samples[m]);
     }
 
     // Automatic headlamp 
-    while (true) {
+    //while (true) {
+    for (unsigned int m=0; m<100; m++) {
+        unsigned short ldrVal   = ldr.read_u16();
+        samples[m] = ldrVal;
+        wait_us(10000);          // 10ms
+        sum = sum + samples[m];
+    }
 
-        for (unsigned int m=0; m<100; m++) {
-            unsigned short ldrVal   = ldr.read_u16();
-            samples[m] = ldrVal;
-            wait_us(10000);          // 10ms
+    float mean = float(sum) / float(100);
+
+    printf("\nsum = %d\n", sum);
+    printf("mean = %.1f\n", mean);
+
+    while(true) {
+        if (ldr.read_u16()<9000) {
+        greenLED = 1;
         }
+        else{
+            greenLED = 0;
+        }
+    }
 
-        // TASK a. Calculate the average value in samples
-
-        // TASK b. Display to 1dp
-
-        // TASK c. Switch green LED on when dark;
-
-    }  
-}
+}  
+//}
 
 

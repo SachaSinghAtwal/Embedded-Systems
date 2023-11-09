@@ -7,7 +7,9 @@ DigitalOut LED_RED_LE(LED_RED_LE_PIN);
 DigitalOut LED_GRN_LE(LED_GRN_LE_PIN);
 DigitalOut LED_BLUE_LE(LED_BLUE_LE_PIN);
 
-void led_init()
+unsigned int L = 1;
+
+void led_init(unsigned int L)
 {
     //Disable the LED outputs
     LED_BAR_OE = 1;
@@ -19,9 +21,9 @@ void led_init()
     wait_us(1);
 
     //Enable all latches
-    LED_RED_LE  = 1;
-    LED_GRN_LE  = 1;
-    LED_BLUE_LE  = 1;
+    led_init(LED_RED_LE);
+    led_init(LED_GRN_LE);
+    led_init(LED_BLUE_LE);
 
     //Give a little time
     wait_us(1);
@@ -36,7 +38,7 @@ int main()
 {
     printf("Functions demo\n");
 
-    led_init();
+    led_init(L);
 
     while (true) {
 
