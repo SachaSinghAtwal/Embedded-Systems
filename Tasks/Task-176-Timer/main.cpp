@@ -4,7 +4,7 @@ using namespace uop_msb;
 
 AnalogIn pot(AN_POT_PIN);
 DigitalOut redLED(TRAF_RED1_PIN);
-DigitalOut dispBackLight(LCD_BKL_PIN);
+DigitalOut dispBackLight(LED1);
 LCD_16X2_DISPLAY disp;
 
 extern int getAverageDelay(double alpha);
@@ -42,7 +42,7 @@ int main()
         switch (state)
         {
             case ON:
-                if (tmr.elapsed_time() > (Ton*1ms)) {
+                if (tmr.elapsed_time() >= (Ton*1ms)) {
                     state = OFF;
                     dispBackLight = 0;
                 }
